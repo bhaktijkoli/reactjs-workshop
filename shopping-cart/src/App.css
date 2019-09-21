@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+body {
+  margin: 0px;
+  background: #eeeeee;
+  font-family: 'Open Sans', sans-serif;
+}
+.add-bar {
+  width: 100%;
+  padding: 15px 50px;
+  background: #3498db;
+}
+
+.input {
+  padding: 5px 10px;
+  border: none;
+  width: 70%;
+  font-size: 22px;
+  border-radius: 3px;
+  outline: none;
+  margin: 5px 20px;
+}
+.btn {
+  padding: 8px 10px;
+  font-size: 22px;
+  border-radius: 3px;
+  outline: none;
+  margin: 5px 20px;
+  min-width: 200px;
+  background: #2ecc71;
+  color: #FFF;
+  border: none;
+  cursor: pointer;
+  transition: all 300ms;
+}
+.btn:hover {
+  background:#27ae60;
+}
+
+.cart-list {
+  margin: 10px 50px;
+  width: calc(100vw - 100px);
+}
+.cart-item {
+  background: #FFF;
+  padding: 15px 50px;
+  margin: 30px 0px;
+  width: auto;
+}
+.cart-item-text {
+  font-size: 32px;
+  display: inline-block;
+}
+.cart-item-count {
+  margin-top: 5px;
+  font-size: 24px;
+  display: inline-block;
+  float: right;
+}
+.cart-item-button {
+  float: right;
+  padding: 8px 10px;
+  border-radius: 3px;
+  outline: none;
+  margin: 0px 10px;
+  min-width: 50px;
+  background: #3498db;
+  color: #FFF;
+  border: none;
+  cursor: pointer;
+  transition: all 300ms;
+  font-size: 24px;
+  display: inline-block;
+}
+.cart-item-button:hover {
+  background: #2980b9;
+}
