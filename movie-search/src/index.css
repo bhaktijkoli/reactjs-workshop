@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: #fcfcfc;
+}
+.search-container {
+  margin: 150px auto 50px auto;
+  width: 50%;
+  position: relative;
+}
+.search-container input {
+  width: 100%;
+  font-size: 32px;
+  padding: 10px 15px;
+  border: 1px #e0e0e3 solid;
+  border-radius: 8px;
+  outline: none;
+  box-shadow: 0 3px 6px #3498db1f, 0 3px 6px #3498db24;
+}
+.search-container i {
+  position: absolute;
+  top: 15px;
+  right: -15px;
+  font-size: 28px;
+  color: #3498db;
+}
+.movies-list {
+  width: 80%;
+  margin: 0px auto;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.movie {
+  flex: 1;
+  margin: 20px;
+  width: 280px;
+  position: relative;
+  cursor: pointer;
+}
+.movie img {
+  width: auto;
+}
+.movie-container {
+  width: 80%;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 50px auto;
+}
+.movie-container .poster {
+  flex: 1,
+}
+.movie-container .poster img {
+  width: inherit;
+}
+.movie-container .movie-details {
+  margin-left: 20px;
+  flex: 3
+}
+.movie-details p {
+  font-size: 1rem;
+}
+.movie-details p span {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-right: 15px;
+}
