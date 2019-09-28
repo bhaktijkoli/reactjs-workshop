@@ -1,12 +1,19 @@
 import React from 'react';
 
+import firebase from 'firebase';
+
 class TopBar extends React.Component {
   state = {
     input: '',
   }
   render() {
+    let user = this.props.user;
     return(
       <div className="add-bar">
+        <img src={user.photo} className="user-photo"/>
+        <div className="user-name">
+          {user.name}
+        </div>
         <input
           className="input"
           type="text"
@@ -17,6 +24,12 @@ class TopBar extends React.Component {
           className="btn"
           onClick={this.onClickAdd}
           >Add</button>
+        <button
+          className="btn-logout"
+          onClick={this.onClickLogout}
+          >
+          Logout
+        </button>
       </div>
     )
   }
@@ -25,13 +38,15 @@ class TopBar extends React.Component {
     this.setState({input:value});
   }
   onClickAdd = () => {
-    let cart = this.state.cart;
     let item = {
       name: this.state.input,
       count: 1,
     }
-    cart.push(item);
-    this.setState({cart:cart, input: ''});
+    firebase.firestore().collection('items').add(item);
+  }
+  onClickLogout = () => {
+    firebase.auth().signOut();
+    window.location.reload();
   }
 }
 

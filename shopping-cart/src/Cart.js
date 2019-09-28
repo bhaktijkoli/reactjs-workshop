@@ -1,10 +1,26 @@
 import React from 'react';
-
 import CartItem from './CartItem.js';
+
+import firebase from 'firebase';
 
 class Cart extends React.Component {
   state = {
     cart: [],
+  }
+  componentDidMount() {
+    firebase
+    .firestore()
+    .collection('items')
+    .onSnapshot((result) => {
+      console.log(result);
+      let docs = result.docs;
+      let items = docs.map((doc, pos) => {
+        let data = doc.data();
+        data.id = doc.id;
+        return data;
+      });
+      this.setState({cart:items});
+    })
   }
   render() {
     let items = this.state.cart.map((item, pos) => {
@@ -18,24 +34,17 @@ class Cart extends React.Component {
     })
     return(
       <React.Fragment>
-          {items}
+        {items}
       </React.Fragment>
     )
   }
-  updateItem = (pos, newCount) => {
-    let cart = this.state.cart;
+  updateItem = (item, newCount) => {
+    let doc = firebase.firestore().collection('items').doc(item.id)
     if(newCount == 0) {
-      let newCart = [];
-      cart.forEach((el, p) => {
-        if(p != pos) {
-          newCart.push(el);
-        }
-      });
-      cart = newCart;
+      doc.delete();
     } else {
-      cart[pos].count = newCount;
+      doc.update({count: newCount});
     }
-    this.setState({cart:cart});
   }
 }
 

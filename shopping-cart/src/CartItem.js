@@ -25,10 +25,10 @@ class CartItem extends React.Component {
     )
   }
   onClickIncrement = () => {
-    this.props.updateItem(this.props.pos, this.props.item.count + 1)
+    this.props.updateItem(this.props.item, this.props.item.count + 1)
   }
   onClickDecrement = () => {
-    this.props.updateItem(this.props.pos, this.props.item.count - 1)
+    this.props.updateItem(this.props.item, this.props.item.count - 1)
   }
 }
 
